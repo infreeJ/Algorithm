@@ -8,20 +8,17 @@ public class OvenTimer {
         int hour = scan.nextInt();
         int min = scan.nextInt();
         int time = scan.nextInt();
-        int rest;
+        int rest = 0;
 
-        if (time >= 60) {
-            rest = time % 60;
-            min = min + rest;
-            hour += time / 60;
-        }
+        min += time;
 
-        if (time < 60) {
-            min += time;
-        }
-
-        if (hour >= 24) {
-            hour -= 24;
+        if (min >= 60) {
+            rest = min / 60;
+            min %= 60;
+            hour += rest;
+            if(hour >= 24) {
+                hour -= 24;
+            }
         }
         System.out.println(hour + " " + min);
     }
