@@ -2,6 +2,7 @@ package conditionals;
 
 import java.util.Scanner;
 
+// 오븐 시계
 public class OvenTimer {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
