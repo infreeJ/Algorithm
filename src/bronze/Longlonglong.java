@@ -1,15 +1,14 @@
-package conditionals;
+package bronze;
 
 import java.util.Scanner;
 
-public class Plus {
+public class Longlonglong {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         int num = scan.nextInt();
-        int sum = 0;
-        for(int i = 1; i <= num; i++) {
-            sum += i;
+        for (int i = 0; i < num; i = i+4) {
+            System.out.print("long ");
         }
-        System.out.println(sum);
+        System.out.println("int");
     }
 }
