@@ -1,7 +1,7 @@
 package silver;
 
 
-// 3번째 시도(선택 정렬)
+// 4번째 시도(삽입 정렬)
 import java.io.*;
 
 public class sortingNumbers2 {
@@ -12,34 +12,75 @@ public class sortingNumbers2 {
         try {
             int n = Integer.parseInt(br.readLine());
             int[] num = new int[n];
+
             for (int i = 0; i < n; i++) {
                 num[i] = Integer.parseInt(br.readLine());
             }
 
-            for (int i = 0; i < n-1; i++) { // 5 4 1 2 3
-                int set = i;
-                for (int j = i+1; j < n; j++) {
-                    if (num[set] > num[j]) {
-                        set = j;
+            int temp = 0;
+
+            for (int i=0; i < n-1; i++) {
+                temp = num[i];
+                for (int j=i; j < n-1; j++) {
+                    if(temp > num[j+1]) {
+                        temp = num[j+1];
                     }
                 }
-                int tmp = num[set];
-                num[set] = num[i];
-                num[i] = tmp;
+                num[i] = temp;
             }
-
-            for (int i = 0; i < n; i++) {
-                String numString = String.valueOf(num[i]);
-                bw.write(numString);
-                bw.newLine();
-            }
-            bw.flush();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
+
+// 5 3 2 4 1
+
+/*
+temp = 5
+5 > 3
+
+ */
+
+
+
+//public class sortingNumbers2 {
+//    public static void main(String[] args) {
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+//
+//        try {
+//            int n = Integer.parseInt(br.readLine());
+//            int[] num = new int[n];
+//            for (int i = 0; i < n; i++) {
+//                num[i] = Integer.parseInt(br.readLine());
+//            }
+//
+//            for (int i = 0; i < n-1; i++) { // 5 4 1 2 3
+//                int set = i;
+//                for (int j = i+1; j < n; j++) {
+//                    if (num[set] > num[j]) {
+//                        set = j;
+//                    }
+//                }
+//                int tmp = num[set];
+//                num[set] = num[i];
+//                num[i] = tmp;
+//            }
+//
+//            for (int i = 0; i < n; i++) {
+//                String numString = String.valueOf(num[i]);
+//                bw.write(numString);
+//                bw.newLine();
+//            }
+//            bw.flush();
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+//}
 
 
 
