@@ -17,30 +17,47 @@ public class sortingNumbers2 {
                 num[i] = Integer.parseInt(br.readLine());
             }
 
-            int temp = 0;
-
-            for (int i=0; i < n-1; i++) {
-                temp = num[i];
-                for (int j=i; j < n-1; j++) {
-                    if(temp > num[j+1]) {
-                        temp = num[j+1];
-                    }
+            for(int i=1; i < n; i++) {
+                int tmp = num[i]; // 1번 인덱스
+                int j = i-1; // 0번 인덱스부터 4번 까지 순환
+                while(j >= 0 && tmp < num[j]) {
+                    num[j+1] = num[j];
+                    j--;
                 }
-                num[i] = temp;
+                num[j+1] = tmp;
             }
+
+            for (int i = 0; i < n; i++) {
+                String numString = String.valueOf(num[i]);
+                bw.write(numString);
+                bw.newLine();
+            }
+            bw.flush();
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-
-// 5 3 2 4 1
-
 /*
-temp = 5
-5 > 3
+5 4 3 2 1
 
+1회차
+i = 1 tmp = 4
+j = 0 num[j] = 5
+5 5 3 2 1
+j = -1
+4 5 3 2 1
+
+2회차
+i = 2 temp = 3
+j = 1 num[j] = 5
+4 5 5 2 1
+j = 0
+4 4 5 2 1
+j = -1
+3 4 5 2 1
  */
 
 
